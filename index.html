@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phone Book</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>📱 Phone Book</header>
+    <main>
+        <!-- search_bar -->
+        <div class="header_main">
+            <input id="search_bar" type="text" onkeyup="search_users()" placeholder="Search..">
+            <button id="add_new" onclick="openModal()"> ➕ Add Contact </button>
+        </div>
+        <!-- רשימת אנשי הקשר -->
+        <ul id="contactList"></ul>
+    </main>
+
+    <!-- Modal for adding and editing contacts -->
+    <div class="modal" id="contactModal">
+        <div class="modal-content">
+            <button class="cancelModel" onclick="closeModal()">X</button>
+            <input type="text" id="contactName" placeholder="Name">
+            <input type="text" id="contactPhone" placeholder="Phone">
+            <input type="email" id="contactEmail" placeholder="Email">
+            <button onclick="saveContact()">Save</button>
+        </div>
+    </div>
+
+    <!-- Modal for showing contact details -->
+    <div class="modal" id="detailsModal">
+        <div class="modal-content">
+            <div id="contactDetails"></div>
+            <button onclick="closeDetailsModal()">Close</button>
+        </div>
+    </div>
+
+    <!-- Modal for delete confirmation -->
+    <div class="modal" id="del_Modal" style="display: none;">
+        <div class="modal-content">
+            <button class="cancelModel" onclick="closeDeleteModal()">X</button>
+            <div>אתה בטוח שתרצה למחוק את איש הקשר? </div>
+            <button id="confirmDelete">מחק</button>
+            <button id="cancelDelete">ביטול</button>
+        </div>
+    </div>
+
+    <script src="js.js"></script>
+</body>
+
+</html>
